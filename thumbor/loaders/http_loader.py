@@ -50,7 +50,7 @@ def validate(context, url, normalize_url_func=_normalize_url):
         return True
 
     for pattern in context.config.ALLOWED_SOURCES:
-        if isinstance(pattern, re._pattern_type):
+        if isinstance(pattern, re.Pattern):
             match = url
         else:
             pattern = '^%s$' % pattern
