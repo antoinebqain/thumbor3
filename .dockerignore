@@ -1,0 +1,10 @@
+.eggs
+.github
+.githubdocs
+integration_tests
+CHANGELOG
+*.md
+LICENSE
+logo-thumbor.png
+*.js
+*.mkd
