@@ -55,6 +55,7 @@ class Engine(PILEngine):
         self._is_multiple = False
 
         result = self.run_gifsicle('--info')
+        result = result.decode('utf-8')
         size = GIFSICLE_SIZE_REGEX.search(result)
         self.image_size = [size.group('width'), size.group('height')]
         self.image_size[0], self.image_size[1] = int(self.image_size[0]), int(self.image_size[1])
