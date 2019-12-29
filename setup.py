@@ -17,6 +17,7 @@ import logging
 
 
 tests_require = [
+    "pillow>=6.2.0",
     "redis>=2.4.9,<3.0.0",
     "coverage",
     "mock>=1.0.1,<3.0.0",
