@@ -20,6 +20,7 @@ RUN apk add --no-cache --update \
     && rm -rf /var/cache/apk/*
 
 RUN ln -sfv /usr/bin/pip3 /usr/bin/pip && ln -sfv /usr/bin/python3 /usr/bin/python
+RUN pip install opencv-python-headless
 ADD . /thumbor
 WORKDIR /thumbor
 RUN ls -lht
