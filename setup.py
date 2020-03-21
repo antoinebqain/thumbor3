@@ -28,11 +28,9 @@ tests_require = [
     "numpy",
     "flake8",
     "yanc",
-    "remotecv",
     "pyssim>=0.4.0",
     "cairosvg>=1.0.0,<2.0.0,!=1.0.21",
-    "preggy>=1.3.0",
-    "opencv-python-headless>=4.2.0"
+    "preggy>=1.3.0"
 ]
 
 

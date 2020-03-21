@@ -1,12 +1,25 @@
-FROM python:3.7-slim-stretch
-RUN apt update
-RUN apt search libvpx
-RUN apt install -y python3-numpy python3-scipy python3-cryptography python3-pycurl ffmpeg imagemagick bash build-essential libcurl4-gnutls-dev libgnutls28-dev zlib1g-dev libtiff5-dev libjpeg62-turbo-dev libopenjp2-7-dev zlib1g-dev \
-    libfreetype6-dev liblcms2-dev libwebp-dev tcl8.6-dev tk8.6-dev python3-tk \
-    libharfbuzz-dev libfribidi-dev
+FROM alpine:edge
+RUN echo -e "http://dl-cdn.alpinelinux.org/alpine/edge/community\nhttp://dl-cdn.alpinelinux.org/alpine/edge/main" >> /etc/apk/repositories
+RUN apk add --no-cache --update \
+    build-base\
+    boost boost-dev\
+    linux-headers\
+    bzip2-dev\
+    python3 python3-dev\
+    gifsicle\
+    build-base git cmake coreutils gcc gfortran cairo\
+    zlib-dev\
+    expat-dev\
+    exiftool exiv2-dev\
+    ca-certificates freetype-dev libpng-dev openblas-dev libffi-dev libwebp libvpx x265-dev jpeg-dev\
+    py3-pip\
+    wget curl curl-dev\
+    py3-numpy py3-scipy py3-cryptography\
+    imagemagick ffmpeg\
+    bash\
+    && rm -rf /var/cache/apk/*
 
-RUN apt install -y webp coreutils gifsicle libvpx-dev exiftool
-
+RUN ln -sfv /usr/bin/pip3 /usr/bin/pip && ln -sfv /usr/bin/python3 /usr/bin/python
 ADD . /thumbor
 WORKDIR /thumbor
 RUN make setup
