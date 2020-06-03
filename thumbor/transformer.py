@@ -15,7 +15,7 @@ from thumbor.point import FocalPoint
 from thumbor.utils import logger
 import tornado.gen as gen
 
-trim_enabled = True
+trim_enabled = False
 try:
     from thumbor.ext.filters import _bounding_box
 except ImportError:
